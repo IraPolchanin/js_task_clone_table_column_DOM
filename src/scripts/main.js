@@ -6,7 +6,9 @@ const rows = table.rows;
 for (let i = 0; i < rows.length; i++) {
   const row = rows[i];
 
-  const clonedCell = row.cells[1].cloneNode(true);
+  if (row.cells.length > 1) {
+    const clonedCell = row.cells[1].cloneNode(true);
+    row.insertBefore(clonedCell, row.cells[row.cells.length - 1]);
+  }
 
-  row.insertBefore(clonedCell, row.cells[row.cells.length - 1]);
 }
